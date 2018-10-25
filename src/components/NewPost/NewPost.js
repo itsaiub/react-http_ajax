@@ -4,7 +4,6 @@ import './NewPost.css';
 import Axios from 'axios';
 
 
-const POST_URL = "https://jsonplaceholder.typicode.com/posts";
 class NewPost extends Component {
 	state = {
 		title: '',
@@ -18,11 +17,11 @@ class NewPost extends Component {
 			body: this.state.content,
 			author: this.state.author
 		}
-		Axios.post(POST_URL, data)
-			.then(respond => {
-				console.log(respond);
-				
-			})
+		
+		Axios.post(`/posts`, data)
+		.then(respond => {
+      //console.log(respond);
+    });
 	}
 
 	render () {

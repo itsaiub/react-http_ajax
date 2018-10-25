@@ -6,7 +6,6 @@ import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
 
-const POST_URL = "https://jsonplaceholder.typicode.com/posts";
 class Blog extends Component {
 
   state = {
@@ -21,7 +20,7 @@ class Blog extends Component {
     //   .then(data => console.log(data))
 
 
-  axios.get(POST_URL)
+    axios.get(`/posts`)
    .then(response => {
      const posts = response.data.slice(0, 4);
      const updatedPosts = posts.map(post => {
