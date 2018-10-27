@@ -43,7 +43,7 @@ export class Posts extends Component {
           <Post
             key={post.id}
             clicked={() => this.postSelectedHandler(post.id)}
-            title={post.title}
+            title={post.title} // {this.props} one way to pass the props to Post component
             author={post.author}
           />
         );
