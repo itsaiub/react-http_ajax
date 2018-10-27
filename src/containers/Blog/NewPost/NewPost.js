@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import { Redirect } from "react-router-dom";
 import "./NewPost.css";
 import Axios from "../../../axios";
 
@@ -10,7 +9,13 @@ class NewPost extends Component {
     content: "",
     author: "Aiub",
     submitted: false
-  };
+	};
+	
+	componentDidMount() {
+		// if unauth => this.props.history.replace('/posts');
+		console.log(this.props);
+		
+	}
 
   postDataHandler = () => {
     const data = {
