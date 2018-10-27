@@ -12,7 +12,12 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <NavLink exact to="/" activeClassName="my-active">
+                <NavLink
+                  exact
+                  to="/"
+                  activeClassName="my-active"
+                  activeStyle={{ textDecoration: "underline" }}
+                >
                   Home
                 </NavLink>
               </li>
