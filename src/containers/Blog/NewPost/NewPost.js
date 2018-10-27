@@ -21,19 +21,20 @@ class NewPost extends Component {
 
     Axios.post(`/posts`, data).then(respond => {
       //console.log(respond);
-      this.setState({ submitted: true });
+			//this.setState({ submitted: true });
+			this.props.history.push('/posts'); // by history.push we con go to previous page, history.replace is works as redirecting we can't go to previous page
     });
   };
 
   render() {
-    let redirect = null;
-    if (this.state.submitted) {
-      redirect = <Redirect to="/" />;
-    }
+    // let redirect = null;
+    // if (this.state.submitted) {
+    //   redirect = <Redirect to="/" />;
+    // }
 
     return (
       <div className="NewPost">
-        {redirect}
+        {/* {redirect} */}
         <h1>Add a Post</h1>
         <label>Title</label>
         <input
