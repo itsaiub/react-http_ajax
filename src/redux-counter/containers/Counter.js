@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import CounterControl from "../components/CounterControl/CounterControl";
 import CounterOutput from "../components/CounterOutput/CounterOutput";
-
+import * as actionTypes from "../../store/action";
 class Counter extends Component {
   state = {
     counter: 0
@@ -36,12 +36,22 @@ class Counter extends Component {
   };
 
   render() {
-    return <div>
+    return (
+      <div>
         <CounterOutput value={this.props.ctr} />
-        <CounterControl label="Increment" clicked={this.props.onIncrementCounter} />
-        <CounterControl label="Decrement" clicked={this.props.onDecrementCounter} />
+        <CounterControl
+          label="Increment"
+          clicked={this.props.onIncrementCounter}
+        />
+        <CounterControl
+          label="Decrement"
+          clicked={this.props.onDecrementCounter}
+        />
         <CounterControl label="Add 5" clicked={this.props.onAddConter} />
-        <CounterControl label="Substract 5" clicked={this.props.onSubtractConter} />
+        <CounterControl
+          label="Substract 5"
+          clicked={this.props.onSubtractConter}
+        />
         <hr />
         <button onClick={this.props.onStoreResult}>Store Result</button>
         <ul>
@@ -55,7 +65,8 @@ class Counter extends Component {
             </li>
           ))}
         </ul>
-      </div>;
+      </div>
+    );
   }
 }
 
@@ -68,12 +79,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
-    onDecrementCounter: () => dispatch({ type: "DECREMENT" }),
-    onAddConter: () => dispatch({ type: "ADD", value: 5 }),
-    onSubtractConter: () => dispatch({ type: "SUBTRACT", value: 5 }),
-    onStoreResult: () => dispatch({ type: "STORE_RESULT" }),
-    onDeleteResult: id => dispatch({ type: "DELETE_RESULT", resultElId: id })
+    onIncrementCounter: () => dispatch({ type: actionTypes.INCREMENT }),
+    onDecrementCounter: () => dispatch({ type: actionTypes.DECREMENT }),
+    onAddConter: () => dispatch({ type: actionTypes.ADD, value: 5 }),
+    onSubtractConter: () => dispatch({ type: actionTypes.SUBTRACT, value: 5 }),
+    onStoreResult: () => dispatch({ type: actionTypes.STORE_RESULT }),
+    onDeleteResult: id =>
+      dispatch({ type: actionTypes.DELETE_RESULT, resultElId: id })
   };
 };
 
