@@ -4,37 +4,7 @@ import CounterControl from "../components/CounterControl/CounterControl";
 import CounterOutput from "../components/CounterOutput/CounterOutput";
 import * as actionTypes from "../../store/action";
 class Counter extends Component {
-  state = {
-    counter: 0
-  };
-
-  counterChangeHandler = (action, value) => {
-    switch (action) {
-      case "inc":
-        this.setState(prevState => {
-          return { counter: prevState.counter + 1 };
-        });
-        break;
-      case "dec":
-        this.setState(prevState => {
-          return { counter: prevState.counter - 1 };
-        });
-        break;
-      case "add":
-        this.setState(prevState => {
-          return { counter: prevState.counter + value };
-        });
-        break;
-      case "sub":
-        this.setState(prevState => {
-          return { counter: prevState.counter - value };
-        });
-        break;
-      default:
-        break;
-    }
-  };
-
+  
   render() {
     return (
       <div>
