@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux'
 import './index.css';
 import App from './App';
+import reducer from './store/reducer'
 import * as serviceWorker from './serviceWorker';
 import Axios from 'axios';
+
+
+const store = createStore(reducer)
+
 
 Axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 Axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
